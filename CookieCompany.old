@@ -1,0 +1,53 @@
+// CookieCompany.cpp : 
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	const double BOX_COST = 10.00;
+	const double COOKIE_COST = 2.35;
+	char junk;
+	int chocChip, peanutButter, snickDoodle, cookieCount, boxes, leftOver;
+	double boxCharge, leftCharge, totalCharge;
+	string firstName, lastName;
+
+	cout << "Welcome to the Cookie Company Web Order Site";
+	cout << "\n\nCookies are $2.38 each, or $10.00 per box (a box holds 6 cookies)";
+	cout << "\n\nPlease enter your name: ";
+	cin >> firstName >> lastName;
+
+	cout << "\nHow many Chocolate Chip cookies would you like? ";
+	cin >> chocChip;
+	cout << "How many Peanut Butter cookies would you like? ";
+	cin >> peanutButter;
+	cout << "How many Snicker Doodles cookies would you like? ";
+	cin >> snickDoodle;
+
+	cookieCount = chocChip + peanutButter + snickDoodle;
+	boxes = cookieCount / 6;
+	leftOver = cookieCount % 6;
+
+	boxCharge = boxes * BOX_COST;
+	leftCharge = leftOver * COOKIE_COST;
+
+	totalCharge = boxCharge + leftCharge;
+
+	cout << "Thank you for your order " << firstName;
+	cout << "\n\nYou have purchased " << cookieCount << " cookies.";
+	cout << "\nThat makes " << boxes << " boxes and " << leftOver << " cookies.";
+	cout << "\n\nYour total charges are as follows: \n\n";
+	cout << fixed << showpoint;
+	cout << setprecision(2);
+	cout << boxes << left << setw(30) << " Boxes @ $20.00 each" << " = $"<< right << setw(7) << boxCharge << endl;
+	cout << leftOver << left << setw(30) << " Extra Cookies @ $2.38 each" << " = $" << right << setw(7) << leftCharge << endl;
+	cout << " " << left << setw(30) << " Total Charge" << " = $" << right << setw(7) << totalCharge << endl;
+
+	cin >> junk;
+	return 0;
+}
+	
